@@ -12,9 +12,7 @@ public class Game {
 
     // Class fields
     private Screen screen;
-    private int x = 10;
-    private int y = 10;
-    
+    Hero hero = new Hero(10, 10);
     // Class methods
     Game() {
         
@@ -35,7 +33,7 @@ public class Game {
     private void draw() throws IOException {
 
         screen.clear();
-        screen.setCharacter(x, y, TextCharacter.fromCharacter('X')[0]);
+        hero.draw(screen);
         screen.refresh();
     }
 
@@ -43,23 +41,10 @@ public class Game {
 
        switch (key.getKeyType()) {
 
-           case ArrowUp:
-               y--;
-               break;
-           case ArrowRight:
-               x++;
-               break;
-           case ArrowDown:
-               y++;
-               break;
-           case ArrowLeft:
-               x--;
-               break;
-           case Character:
-               screen.close();
-               break;
-           case EOF:
-               break;
+           case ArrowUp:    hero.moveUp(); break;
+           case ArrowRight: hero.moveRight(); break;
+           case ArrowDown:  hero.moveDown(); break;
+           case ArrowLeft:  hero.moveLeft(); break;
        }
     }
     public void run() throws IOException {
