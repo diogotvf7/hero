@@ -8,7 +8,7 @@ public class Hero {
 
     // Class methods
     Hero(int x_, int y_) {
-        setPosition(new Position(x_, y_));
+        position = new Position(x_, y_) ;
     }
 
     public Position getPosition() {return position;}
