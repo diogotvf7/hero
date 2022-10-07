@@ -13,6 +13,7 @@ public class Game {
     // Class fields
     private Screen screen;
     Hero hero = new Hero(10, 10);
+
     // Class methods
     Game() {
         
@@ -37,14 +38,26 @@ public class Game {
         screen.refresh();
     }
 
+    private void moveHero(Position position) {
+        hero.setPosition(position);
+    }
+
     private void processKey(KeyStroke key) throws IOException {
 
        switch (key.getKeyType()) {
 
-           case ArrowUp:    hero.moveUp(); break;
-           case ArrowRight: hero.moveRight(); break;
-           case ArrowDown:  hero.moveDown(); break;
-           case ArrowLeft:  hero.moveLeft(); break;
+           case ArrowUp:
+               moveHero(hero.moveUp());
+               break;
+           case ArrowRight:
+               moveHero(hero.moveRight());
+               break;
+           case ArrowDown:
+               moveHero(hero.moveDown());
+               break;
+           case ArrowLeft:
+               moveHero(hero.moveLeft());
+               break;
        }
     }
     public void run() throws IOException {
