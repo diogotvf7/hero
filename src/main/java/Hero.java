@@ -7,9 +7,6 @@ import com.googlecode.lanterna.screen.Screen;
 
 public class Hero extends Element {
 
-    // Class fields
-    private Position position;
-
     // Class methods
     Hero(Position position) {
 
@@ -29,8 +26,8 @@ public class Hero extends Element {
     }
     public void draw(TextGraphics graphics) {
 
-        graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('X')[0]);
-        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        //graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('X')[0]);
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()), "X");
     }

@@ -4,19 +4,18 @@ import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Wall extends Element{
+public class Coin extends Element {
 
     // Class methods
-    Wall(Position position) {
+    Coin(Position position) {
 
         super(position);
     }
     public void draw(TextGraphics graphics) {
 
-        //graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('Z')[0]);
-        graphics.setForegroundColor(TextColor.Factory.fromString("#D22B2B"));
+        //graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('O')[0]);
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()), "Z");
+        graphics.putString(new TerminalPosition(position.getX(),position.getY()), "O");
     }
-
 }

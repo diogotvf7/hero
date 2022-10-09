@@ -13,7 +13,7 @@ public class Game {
     // Class fields
     private Screen screen;
     private Arena arena = new Arena(80, 24);
-    Hero hero = new Hero(10, 10);
+    Hero hero = new Hero(new Position(10, 10));
 
     // Class methods
     Game() {

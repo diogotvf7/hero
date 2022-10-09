@@ -8,6 +8,7 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Arena {
 
@@ -16,11 +17,12 @@ public class Arena {
     private int height;
     Hero hero = new Hero(new Position(10, 10));
     private List<Wall> walls;
+    private List<Coin> coins;
 
     // Class functions
     Arena(int width_, int height_) {
 
-        width = width_; height = height_; this.walls = createWalls();
+        width = width_; height = height_; this.walls = createWalls(); this.coins = createCoins();
     }
     public void processKey(KeyStroke key) throws IOException {
 
@@ -65,13 +67,38 @@ public class Arena {
         }
         return walls;
     }
+    private List<Coin> createCoins() {
+        Random random = new Random();
+        ArrayList<Coin> coins = new ArrayList<>();
+        while (coins.size() < 5) {
+
+            Position random_position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+            if (!random_position.equals(hero.getPosition())) {
+                coins.add(new Coin(random_position));
+            }
+        }
+        return coins;
+    }
+    private void retrieveCoins() {
+
+        for (Coin coin : coins) {
+
+            if (hero.getPosition().equals(coin.getPosition())) {
+                coins.remove(coin);
+                break;
+            }
+        }
+    }
     public void draw(TextGraphics graphics) {
 
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#583660"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
         hero.draw(graphics);
+        retrieveCoins();
         for (Wall wall : walls)
             wall.draw(graphics);
+        for (Coin coin : coins)
+            coin.draw(graphics);
     }
 
 
