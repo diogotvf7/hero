@@ -4,19 +4,16 @@ import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Wall {
+public class Wall extends Element{
 
     // Class fields
     private Position position;
 
     // Class methods
-    Wall(int x_, int y_) {
-        position = new Position(x_, y_) ;
+    Wall(Position position) {
+
+        super(position);
     }
-
-    public Position getPosition() {return position;}
-    public void setPosition(Position position) {this.position = position;}
-
     public void draw(TextGraphics graphics) {
 
         graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('X')[0]);
