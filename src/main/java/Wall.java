@@ -4,7 +4,10 @@ import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Wall {private Position position;
+public class Wall {
+
+    // Class fields
+    private Position position;
 
     // Class methods
     Wall(int x_, int y_) {
