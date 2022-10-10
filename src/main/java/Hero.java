@@ -26,7 +26,6 @@ public class Hero extends Element {
     }
     public void draw(TextGraphics graphics) {
 
-        //graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('X')[0]);
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()), "X");

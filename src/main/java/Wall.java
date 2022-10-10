@@ -13,7 +13,6 @@ public class Wall extends Element{
     }
     public void draw(TextGraphics graphics) {
 
-        //graphics.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('Z')[0]);
         graphics.setForegroundColor(TextColor.Factory.fromString("#D22B2B"));
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()), "Z");
